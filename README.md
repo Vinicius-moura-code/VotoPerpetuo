@@ -10,8 +10,7 @@
 
 
 <p align="center">
-Esse repósitorio foi criado para guardarmos nossos projetos em desenvolvimento, alem de documentar nosso processo de aprendizado e introdução a novas tecnologias.
-  <a href="#-license">Licença</a>
+Esse repositório foi criado para guardarmos nossos projetos em desenvolvimento, além de documentar nosso processo de aprendizado e introdução a novas tecnologias.
 </p>
 
 <p align="center">
@@ -19,7 +18,7 @@ Esse repósitorio foi criado para guardarmos nossos projetos em desenvolvimento,
 </p>
 
 <br>
----
+
 ## 🚀 Tecnologias
 
 O projeto possuí as seguintes técnologias:
