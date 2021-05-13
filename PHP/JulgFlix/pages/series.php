@@ -18,7 +18,7 @@
       <div class="col-md-2">
       </div>
       <div id="logo" class="col-md-8">
-        <img src="../assets/logo.png"></br>
+      <a href="../index.php"><img src="../assets/logo.png"></a>
 
       </div>
       <div class="col-md-2">
@@ -30,7 +30,6 @@
 
 
           <ul id="menu" class="nav navbar">
-          <li><a href="../index.php">Home</a></li>
             <li><a href="usuario.php">Usuário</a></li>
             <li><a href="filmes.php">Filme</a></li>
             <li><a href="series.php">Séries</a></li>
@@ -42,13 +41,97 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-3">
+        <div id="resposta">
+
+          <?php
+          if (isset($_POST['Enviar'])) {
+            $genero = $_POST['genero'];
+            $sinopse = $_POST['sinopse'];
+            $datal = $_POST['datal'];
+            $ondassistir = $_POST['ondassistir'];
+            $pa = $_POST['pa'];
+            $numtemp = $_POST['numtemp'];
+            echo "";
+            echo "<p>Genêro: $genero</p>";
+            echo "<p>Sinopse: $sinopse</p>";
+            echo "<p>Data de Lançamento: $datal</p>";
+            echo "<p>Onde Assitir: $ondassistir</p>";
+            echo "<p>Porcentagem de Aprovação: $pa</p>";
+            echo "<p>Número de Temporadas: $numtemp</p>";
+            echo "";
+          }
+          ?>
+        </div>
       </div>
-      <div id="conteudo" class="col-md-8">
-        <h3 class="text-center">
-          JulgFlix, cadastre quantos filmes, série, anime ou desenhos quiser e deixe as pessoas julgarem seus gostos. </h3>
+      <div id="conteudo" class="col-md-6">
+        <form action="desenhos.php" method="post">
+          <div class="form-group-sm">
+            <label for="formcheck">Genêro</label>
+            <div id="formcheck" class="form-check">
+              <input class="form-check-input-inline" type="radio" name="genero" value="comedia" id="comedia">
+
+              <label class="form-check-label" for="comedia">Comédia</label>
+
+              <input class="form-check-input-inline" type="radio" name="genero" value="cromantica" id="comediaromantica">
+              <label class="form-check-label" for="comediaromantica">Comédia Romântica</label>
+
+              <input class="form-check-input-inline" type="radio" name="genero" value="drama">
+              <label class="form-check-label" for="comedia">Drama</label>
+
+              <input class="form-check-input-inline" type="radio" name="genero" value="fc">
+              <label class="form-check-label" for="comedia">Ficção Cientifica</label>
+
+              <input class="form-check-input-inline" type="radio" name="genero" value="terror">
+              <label class="form-check-label" for="comedia">Terror</label>
+
+              <input class="form-check-input-inline" type="radio" name="genero" value="acao">
+              <label class="form-check-label" for="comedia">Ação</label>
+            </div>
+
+            <label for="exampleFormControlTextarea2">Sinopse:</label>
+            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="2" name="sinopse"></textarea>
+
+            <label for="datal">Data de lançamento:</label>
+            <input class="form-control" id="datal" type="date" name="datal">
+
+            <label for="ondeAssistir">Onde Assistir:</label>
+            <div class="form-check" id="ondeAssistir">
+
+              <label class="form-check-label" for="disney"></label>
+              <input id="disney" class="form-check-input-inline" type="radio" name="ondassistir" value="disney">Disney+
+
+              <label class="form-check-label" for="netflix"></label>
+              <input id="netflix" class="form-check-input-inline" type="radio" name="ondassistir" value="netflix">Netflix
+
+              <label class="form-check-label" for="hbo"></label>
+              <input id="hbo" class="form-check-input-inline" type="radio" name="ondassistir" value="hbo">HBO
+
+              <label class="form-check-label" for="amazon"></label>
+              <input id="amazon" class="form-check-input-inline" type="radio" name="ondassistir" value="ap">Amazon Prime
+            </div>
+
+            <label for="porcent">Porcentagem de aprovação:</label>
+            <div class="input-group mb-3">
+              <input id="porcent" class="form-control" type="number" name="pa" min="0" max="100">
+              <div class="input-group-append">
+                <span class="input-group-text" id="porcent">%</span>
+              </div>
+
+            </div>
+
+            <label for="temporadas">Número de Temporadas:</label>
+            <input class="form-control" id="temporadas" type="number" name="numtemp" min="0" max="100">
+
+            <br>
+            <input class="btn btn-success" type="submit" name="Enviar" value="Enviar">
+            <input class="btn btn-danger" type="reset" name="Limpar" value="Limpar">
+
+          </div>
+        </form>
+
       </div>
-      <div class="col-md-2">
+      <div class="col-md-3">
       </div>
     </div>
     <div class="row">

@@ -37,6 +37,16 @@ body {
 #conteudo{
   color: #ffffff;
   margin: 60px 0;
+  padding: 0;
+}
+#resposta{
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+}
+
+p{
+  color: #ffff;
 }
 .footer {
   font-size: 1.2rem;

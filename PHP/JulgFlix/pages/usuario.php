@@ -18,7 +18,8 @@
       <div class="col-md-2">
       </div>
       <div id="logo" class="col-md-8">
-        <img src="../assets/logo.png"></br>
+      <a href="../index.php"><img src="../assets/logo.png"></a>
+        </br>
 
       </div>
       <div class="col-md-2">
@@ -30,7 +31,6 @@
 
 
           <ul id="menu" class="nav navbar">
-          <li><a href="../index.php">Home</a></li>
             <li><a href="usuario.php">Usuário</a></li>
             <li><a href="filmes.php">Filme</a></li>
             <li><a href="series.php">Séries</a></li>
@@ -45,8 +45,53 @@
       <div class="col-md-2">
       </div>
       <div id="conteudo" class="col-md-8">
-        <h3 class="text-center">
-          JulgFlix, cadastre quantos filmes, série, anime ou desenhos quiser e deixe as pessoas julgarem seus gostos. </h3>
+
+        <form action="usuario.php" method="post">
+        <table border="0">
+         <tr>
+             <td>Nome:</td>
+            <td><input type="text" name="nome"></td>
+        </tr>
+        <tr>
+             <td>CPF:</td>
+            <td><input type="text" name="cpf"></td>
+        </tr>
+        <tr>
+             <td>Endereço:</td>
+            <td><input type="text" name="endereco"></td>
+        </tr>
+        <tr>
+             <td>Cidade:</td>
+            <td><input type="text" name="cidade"></td>
+        </tr>
+        <tr>
+             <td>Estado:</td>
+            <td><input type="text" name="estado"></td>
+        </tr>
+        <tr>
+        <td><input type="submit" name="Enviar" value="Enviar"></td>
+        <td><input type="reset" name="Limpar" value="Limpar"></td>
+    </tr>
+</table>
+</form>
+
+<div class="res">
+<?php
+    if (isset($_POST['Enviar'])){
+        $nome=$_POST['nome'];
+        $cpf=$_POST['cpf'];
+        $end=$_POST['endereco'];
+        $cidade=$_POST['cidade'];
+        $estado=$_POST['estado'];
+        echo "Nome: $nome<br>";
+        echo "CPF: $cpf<br>";
+        echo "Endereço: $end<br>";
+        echo "Cidade: $cidade<br>";
+        echo "Estado: $estado<br>";    
+    } 
+?>
+</div>
+
       </div>
       <div class="col-md-2">
       </div>
