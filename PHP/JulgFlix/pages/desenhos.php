@@ -46,21 +46,25 @@
         <div id="resposta">
 
           <?php
-          if (isset($_POST['Enviar'])) {
-            $genero = $_POST['genero'];
-            $sinopse = $_POST['sinopse'];
-            $datal = $_POST['datal'];
-            $ondassistir = $_POST['ondassistir'];
-            $pa = $_POST['pa'];
-            $numtemp = $_POST['numtemp'];
-            echo "";
-            echo "<p>Genêro: $genero</p>";
-            echo "<p>Sinopse: $sinopse</p>";
-            echo "<p>Data de Lançamento: $datal</p>";
-            echo "<p>Onde Assitir: $ondassistir</p>";
-            echo "<p>Porcentagem de Aprovação: $pa</p>";
-            echo "<p>Número de Temporadas: $numtemp</p>";
-            echo "";
+
+          $titulo = isset($_POST['titulo']) ? $_POST['titulo'] : null;
+          $genero = isset($_POST['genero']) ? $_POST['genero'] : null;
+          $sinopse = isset($_POST['sinopse']) ? $_POST['sinopse'] : null;
+          $datal = isset($_POST['datal']) ? $_POST['datal'] : null;
+          $ondassistir = isset($_POST['ondassistir']) ? $_POST['ondassistir'] : null;
+          $pa = isset($_POST['pa']) ? $_POST['pa'] : null;
+          $numtemp = isset($_POST['numtemp']) ? $_POST['numtemp'] : null;
+
+          if (isset($_POST['Enviar']) && !empty($_POST['titulo'])) {
+            include("../server/connection.php");
+            $db = mysqli_select_db($connection, DB_DATABASE);
+
+            $inserir = mysqli_query($connection, "insert into desenhos(titulo, sinopse, genero, datal, ondassistir, pa, numtemp) values('$titulo','$sinopse', '$genero', '$datal', '$ondassistir', '$pa', '$numtemp') ");
+            if ($inserir == true) {
+              echo "Cadastro efetuado com exito";
+            } else
+              echo "Impossivel incluir";
+            mysqli_close($connection);
           }
           ?>
         </div>
@@ -68,6 +72,10 @@
       <div id="conteudo" class="col-md-6">
         <form action="desenhos.php" method="post">
           <div class="form-group-sm">
+
+            <label for="form">Titulo:</label>
+            <input class="form-control" id="titulo" type="text" name="titulo">
+
             <label for="formcheck">Genêro</label>
             <div id="formcheck" class="form-check">
               <input class="form-check-input-inline" type="radio" name="genero" value="comedia" id="comedia">
@@ -127,12 +135,96 @@
             <br>
             <input class="btn btn-success" type="submit" name="Enviar" value="Enviar">
             <input class="btn btn-danger" type="reset" name="Limpar" value="Limpar">
+            <button type="button" id="show" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+              Show
+            </button>
 
           </div>
         </form>
 
       </div>
       <div class="col-md-3">
+
+        <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Séries</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <table class='table table-striped' id='tableUsuario'>
+                  <?php
+                  if (isset($_POST['show'])) {
+                    include("../server/connection.php");
+                    $db = mysqli_select_db($connection, DB_DATABASE);
+                    $resultado = mysqli_query($connection, "select * from desenhos order by id_user;");
+                    $num_linhas = mysqli_num_rows($resultado);
+
+                    echo "
+
+                  <thead>;
+                    <tr>;
+                      <th scope='col'>Titulo</th>;
+                      <th scope='col'>Sinopse</th>;
+                      <th scope='col'>Genero</th>;
+                      <th scope='col'>Data de lançamento</th>;
+                      <th scope='col'>Onde assistir</th>;
+                      <th scope='col'>Aprovação</th>;
+                      <th scope='col'>Temporadas</th>;
+                      <th scope='col'>Alterar</th>;
+                      <th scope='col'>Deletar</th>;
+                    </tr>;
+                  </thead>
+                  ";
+                    for ($i = 0; $i < $num_linhas; $i++) {
+                      $showTable = mysqli_fetch_array($resultado);
+                      $objeto = $showTable['id_user'];
+                      echo "<tbody>
+                    <tr>
+                    <td>$objeto</td>";
+                      echo "<td>";
+                      echo $showTable['$titulo'];
+                      echo "</td?";
+                      echo "<td>";
+                      echo $showTable['$sinopse'];
+                      echo "</td?";
+                      echo "<td>";
+                      echo $showTable['$genero'];
+                      echo "</td?";
+                      echo "<td>";
+                      echo $showTable['$datal'];
+                      echo "</td?";
+                      echo "<td>";
+                      echo $showTable['$ondassistir'];
+                      echo "</td>";
+                      echo "<td>";
+                      echo $showTable['$pa'];
+                      echo "</td>";
+                      echo "<td>";
+                      echo $showTable['$numtemp'];
+                      echo "</td>";
+                      echo "<td><a href='#'>Alterar</a></td>";
+                      echo "<td><a href='#'>Deletar</a></td>";
+
+                      echo "</tr></tbody>";
+                    };
+                    mysqli_close($connection);
+                  }
+
+                  ?>
+                </table>
+              </div>
+
+              <div class="modal-footer">
+                <h5>Formulários enviado para registro.</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
     <div class="row">
@@ -144,7 +236,10 @@
     </div>
   </div>
   <!-- JavaScript Bundle with Popper -->
+  <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+  <script src="https://code.jquery.com/jquery-migrate-3.3.2.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../Scripts/user.js"></script>
 </body>
 
 </html>
