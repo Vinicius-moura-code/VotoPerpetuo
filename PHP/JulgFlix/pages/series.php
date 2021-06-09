@@ -69,7 +69,7 @@
         </div>
       </div>
       <div id="conteudo" class="col-md-6">
-        <form action="desenhos.php" method="post">
+        <form action="series.php" method="post">
           <div class="form-group-sm">
 
             <label for="form">Titulo:</label>
@@ -145,7 +145,7 @@
       <div class="col-md-3">
 
         <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
+          <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Séries</h5>
