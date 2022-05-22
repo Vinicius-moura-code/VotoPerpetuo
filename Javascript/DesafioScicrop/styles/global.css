@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+
+  background: rgb(247, 81, 81);
+}
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+header {
+  width: 100%;
+  background: rgb(175, 175, 175);
+  height: 3rem;
+  position: relative;
+  top: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+header button {
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: aliceblue;
+  padding: 0.5rem;
+  margin: 0.3rem;
+}
+a {
+  text-decoration: none;
+}
+
+

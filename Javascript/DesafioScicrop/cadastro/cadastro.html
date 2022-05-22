@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios@0.21.4/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="cadastro.css" />
+    <title>DESAFIO SCICROP - Cadastrar</title>
+  </head>
+  <body>
+    <header>
+      <button><a href="/">Voltar</a></button>
+    </header>
+    <form id="form" name="form">
+      <div>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" required />
+      </div>
+
+      <div>
+        <label for="latitude">Latitude:</label>
+        <input id="latitude" required />
+      </div>
+
+      <div>
+        <label for="longitude">Longitude:</label>
+        <input id="longitude" required />
+      </div>
+
+      <div class="button">
+        <button type="submit">
+          Cadastrar
+        </button>
+      </div>
+    </form>
+    <script src="../services/service.js"></script>
+  </body>
+</html>

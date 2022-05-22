@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Aliança" title="Aliança" src=".github/alianca.jpg" />
+    <img alt="Aliança" title="Aliança" src="../.github/alianca.jpg" />
 </h1>
 
 <h1 align="center"> Voto Perpétuo</h1>
