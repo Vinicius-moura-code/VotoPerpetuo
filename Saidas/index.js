@@ -4,5 +4,6 @@ let locais = ['Bomba Burguer Canoas', 'Bomba Burguer Sapucaia', 'Bah Restaurante
 
 
 function gerarlocal() {
-
+    let x = (Math.random() * locais.length);
+    alert(locais[x]);
 }
