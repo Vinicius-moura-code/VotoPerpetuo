@@ -39,12 +39,12 @@
 img {
   display: block;
   position: fixed;
-  bottom: 2;
-  right: 5%;
+  bottom: 1%;
+  right: 1%;
   /*margin-left: 1000px;
   margin-right: 40px;
   margin-top: 160px;*/
-  width: 300px;
+  width: 20%;
 }
 
 
@@ -52,7 +52,8 @@ img {
   font-weight: bold;
   font-weight: 400;
   font-size: 3rem;
-  text-shadow: 2px 2px 5px rgb(195, 0, 255)
+  text-shadow: 2px 2px 5px rgb(195, 0, 255);
+  
 }
 
 .centerDiv {
