@@ -4,6 +4,11 @@ const resposta = document.getElementById('resposta');
 const display = (s) => (resposta.innerText = s);
 
 let locais = [
+  'Hamburguer',
+  'Cachorro Quente',
+  'X',
+  'Pizza',
+  'SamFood',
   'Bomba Burguer Canoas',
   'Bomba Burguer Sapucaia',
   'Bah Restaurante',
